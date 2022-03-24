@@ -31,18 +31,9 @@ function searchlocation() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
     
-            // console.log(position);
-            // long = position.coords.longitude;
-            // lat = position.coords.latitude;
-            // console.log(long, lat)
-    
-            let coordList = [{lon:-0.1257,lat:51.5085}, {lon:-47.9297,lat:-15.7797}, {lon:116.3972,lat:39.9075}, {lon:11.5167,lat:3.8667}]
-            function random(mn, mx) {
-                return Math.random() * (mx - mn) + mn;
-            }
-            villeRandom = coordList[Math.floor(random(1, 4))-1];
-            long = villeRandom.lon;
-            lat = villeRandom.lat;
+            long = position.coords.longitude;
+            lat = position.coords.latitude;
+
             callVilleApiLocation();
     
         }, () => {
