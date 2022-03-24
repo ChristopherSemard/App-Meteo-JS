@@ -70,6 +70,11 @@ input:focus-visible{
     opacity: 0.5;
 }
 
+
+#hidden{
+    display: none;
+}
+
 #widgets{
     border: rgb(0, 153, 255) 5px solid;
     border-radius: 30px;
@@ -106,12 +111,12 @@ h2{
 }
 
 #temps-j2{
-    background-color: lightgrey;
+    background-color: rgb(223, 223, 223);
     grid-area: j2;
 }
 
 #temps-j3{
-    background-color: lightgrey;
+    background-color:  rgb(223, 223, 223);
     grid-area: j3;
 }
 
@@ -136,15 +141,29 @@ h2{
     flex-direction: column;
 }
 
-.temps-principal .icon-weather{
-    height: 70%;
-    font-size: 100px;
+.temps-principal .div-icon-weather{
+
+    height:70%;
 }
 
 
-.temps-secondaire .icon-weather{
-    height: 70%;
-    font-size: 50px;
+.temps-secondaire .div-icon-weather{
+    height:70%;
+}
+
+
+.temps-principal .div-icon-weather .icon-weather{
+    height:140%;
+    margin: -70px;
+    object-fit: cover;
+
+}
+.temps-secondaire .div-icon-weather .icon-weather{
+
+    height:150%;
+    margin: -20px;
+    margin-left: -25px;
+    object-fit: cover;
 }
 
 
