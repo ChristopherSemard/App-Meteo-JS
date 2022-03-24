@@ -15,8 +15,13 @@ let numberOfDays = 6
 
 function search() {
     let valueCityName = document.getElementById('cityName').value;
-    console.log(valueCityName);
-    callVilleApiSearch(valueCityName);
+    if (valueCityName == ""){
+        console.log("NULL")
+
+    }
+    else{
+        callVilleApiSearch(valueCityName);
+    }
 
 }
 
