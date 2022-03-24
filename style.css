@@ -1,0 +1,154 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #333;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+
+
+h1{
+    margin: 20px;
+}
+
+.search{
+    margin-bottom: 20px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    width: 50px;
+    height: 50px;
+    background: rgb(0, 153, 255);
+    border: none;
+    border-radius: 10px 0 0 10px;
+}
+button i{
+    color: white;
+    font-size: 1.2em;
+}
+
+input{
+    height: 50px;
+    width: 40%;
+    border: none;
+    background: rgb(85, 85, 85);
+    border-bottom: white 2px solid;
+    border-radius:  0 10px 10px 0 ;
+    padding-left: 20px;
+    color: white;
+    font-size: 1.5em;
+}
+
+input:focus-visible{
+    outline: none;
+}
+
+::placeholder{
+    color: whitesmoke;
+    opacity: 0.5;
+}
+
+#widgets{
+    border: rgb(0, 153, 255) 5px solid;
+    border-radius: 30px;
+    display: grid;
+    grid-template-rows: 80px 150px 150px;
+    grid-template-columns: repeat(3, minmax(200px,1fr));
+    grid-template-areas:    "ville ville ville"
+                            "today j1 j2"
+                            "today j3 j4";
+    overflow: hidden;
+}
+
+#ville{
+    background-color: rgb(0, 153, 255);
+    grid-area: ville;
+    border-bottom: whitesmoke 5px solid;
+    display: flex;
+    justify-content: center;
+}
+
+h2{
+    font-size: 2.5em;
+    margin: auto;
+}
+
+#temps-actuel{
+    background-color: rgb(51, 173, 255);
+    grid-area: today;
+}
+
+#temps-j1{    
+    background-color: whitesmoke;
+    grid-area: j1;
+}
+
+#temps-j2{
+    background-color: lightgrey;
+    grid-area: j2;
+}
+
+#temps-j3{
+    background-color: lightgrey;
+    grid-area: j3;
+}
+
+#temps-j4{
+    background-color: whitesmoke;
+    grid-area: j4;
+}
+
+
+.temps-principal{
+    padding: 5%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.temps-secondaire{
+    padding: 5%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.temps-principal .icon-weather{
+    height: 70%;
+    font-size: 100px;
+}
+
+
+.temps-secondaire .icon-weather{
+    height: 70%;
+    font-size: 50px;
+}
+
+
+h3{
+    font-size: 1.3em;
+    font-weight: 600;
+}
