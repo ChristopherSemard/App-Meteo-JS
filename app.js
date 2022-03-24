@@ -3,32 +3,52 @@ const keyAPI = '8770d91a5e39581cbe0f8b6be7c75f33';
 let long;
 let lat;
 let cityName = "rouen"
-let numberOfDays = 4
+let numberOfDays = 6
 
 
-if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
+// document.addEventListener("keyup", function(event) {
+//     if (event.key === "Enter" && document.getElementById("cityName").is(":focus")) {
+//         // Do work
+//     }
+// });
 
-        // console.log(position);
-        // long = position.coords.longitude;
-        // lat = position.coords.latitude;
-        // console.log(long, lat)
 
-        let coordList = [{lon:-0.1257,lat:51.5085}, {lon:-47.9297,lat:-15.7797}, {lon:116.3972,lat:39.9075}, {lon:11.5167,lat:3.8667}]
-        function random(mn, mx) {
-            return Math.random() * (mx - mn) + mn;
-        }
-        villeRandom = coordList[Math.floor(random(1, 4))-1];
-        long = villeRandom.lon;
-        lat = villeRandom.lat;
-        callVilleApi()
+function search() {
+    let valueCityName = document.getElementById('cityName').value;
+    console.log(valueCityName);
+    callVilleApiSearch(valueCityName);
 
-    }, () => {
-        alert(`Vous avez refusé la géolocalisation, l'application ne peur pas fonctionner, veuillez l'activer.!`)
-    })
 }
 
-function callVilleApi() {
+
+
+function searchlocation() {
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+    
+            // console.log(position);
+            // long = position.coords.longitude;
+            // lat = position.coords.latitude;
+            // console.log(long, lat)
+    
+            let coordList = [{lon:-0.1257,lat:51.5085}, {lon:-47.9297,lat:-15.7797}, {lon:116.3972,lat:39.9075}, {lon:11.5167,lat:3.8667}]
+            function random(mn, mx) {
+                return Math.random() * (mx - mn) + mn;
+            }
+            villeRandom = coordList[Math.floor(random(1, 4))-1];
+            long = villeRandom.lon;
+            lat = villeRandom.lat;
+            callVilleApiLocation();
+    
+        }, () => {
+            alert(`Vous devez activer la géolocalisation pour pouvoir utiliser cette fonctionnalité !`)
+        })
+    }
+
+}
+
+
+function callVilleApiLocation() {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${keyAPI}`)
 	.then(function(resp2) { return resp2.json() }) // Convert data to json
     .then(function(dataVille) {
@@ -37,7 +57,20 @@ function callVilleApi() {
     
 }
 
+
+function callVilleApiSearch(valueCityName) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${valueCityName}&appid=${keyAPI}`)
+	.then(function(resp2) { return resp2.json() }) // Convert data to json
+    .then(function(dataVille) {
+        callWeatherApi(dataVille);
+    })
+    
+}
+
+
 function callWeatherApi(dataVille) {
+    long = dataVille.coord.lon;
+    lat = dataVille.coord.lat;
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&lang=fr&units=metric&appid=${keyAPI}`)
     .then(function(resp) { return resp.json() }) // Convert data to json
     .then(function(dataWeather) {

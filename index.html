@@ -13,8 +13,9 @@
     <main>
         <h1>APP METEO JS</h1>
         <div class="search">
-            <button><i class="fa-solid fa-location-dot"></i></button>
-            <input type="text" placeholder="Entrez votre ville ici ...">
+            <button class="button-location" onclick="searchlocation()"><i class="fa-solid fa-location-dot"></i></button>
+            <input type="text" id="cityName" placeholder="Entrez votre ville ici ..." >
+            <button class="button-search" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></i></button>
         </div>
         <div id="hidden">
             <div id="widgets">
@@ -66,7 +67,25 @@
                         <img class="icon-weather"></img>
                     </div>
                     <p>Pluie</p>
+                </div>
+                <div id="temps-j5" class="temps-secondaire">
+                    <h3>27 mars</h3>
+                    <p>12°C</p>
                     
+                    <div class="div-icon-weather">
+                        <img class="icon-weather"></img>
+                    </div>
+                    <p>Pluie</p>
+                    
+                </div>
+                <div id="temps-j6" class="temps-secondaire">
+                    <h3>28 mars</h3>
+                    <p>12°C</p>
+                    
+                    <div class="div-icon-weather">
+                        <img class="icon-weather"></img>
+                    </div>
+                    <p>Pluie</p>
                 </div>
 
             </div>
