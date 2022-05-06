@@ -1,3 +1,3 @@
 # App-Meteo-JS
 
-Petite application météo pour utiliser l'API OpenWeatherMap avec recherche de ville ou localisation du navigateur
+Petite application météo tester l'utilisation de l'API OpenWeatherMap avec recherche de ville ou localisation du navigateur.
